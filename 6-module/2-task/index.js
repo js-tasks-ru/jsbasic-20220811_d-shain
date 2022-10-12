@@ -22,7 +22,7 @@ export default class ProductCard {
     this.elem = div;
 
     this.elem.addEventListener('click', event => {
-      if (event.target.parentNode.className == "card__button") {
+      if (event.target.closest(".card__button")) {
         let myEvent = new CustomEvent('product-add', {
           detail: this.product.id,
           bubbles: true,
@@ -33,6 +33,8 @@ export default class ProductCard {
       });
 
     this.elem.addEventListener('product-add', event => {
+      console.log( event);
+      console.log( event.detail);
         
     });
   }
